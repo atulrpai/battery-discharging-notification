@@ -1,0 +1,6 @@
+bat=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E "state")
+
+if [ "$bat" = "    state:               discharging" ];
+then 
+	XDG_RUNTIME_DIR=/run/user/$(id -u) notify-send "Battery" "Discharging";
+fi
